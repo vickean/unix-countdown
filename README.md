@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Unix-Countdown
+
+Simple utility to calculate and display time difference between a given unix timestamp and current time.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
