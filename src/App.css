@@ -19,6 +19,10 @@
   padding: 1rem;
   font-size: 1.5rem;
   position: relative;
+  animation-duration: 0.01s;
+  animation-name: divflicker;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .Button:after {
@@ -52,6 +56,10 @@
   font-family: Cyber;
   caret-color: white;
   text-align: center;
+  animation-duration: 0.01s;
+  animation-name: textflicker;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .Display input:focus {
@@ -73,6 +81,10 @@
   padding: 0.5rem 0.5rem;
   position: relative;
   width: 20rem;
+  animation-duration: 0.01s;
+  animation-name: divflicker;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .DataContainerLabel {
