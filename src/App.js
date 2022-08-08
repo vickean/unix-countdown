@@ -9,6 +9,7 @@ function App() {
   const [inputTimeTemp, setInputTimeTemp] = useState(
     DateTime.now().toUnixInteger()
   );
+  const [jitterActive, setJitterActive] = useState(false);
   const currentTimeRef = useRef(currentTime);
   currentTimeRef.current = currentTime;
   const inputTimeRef = useRef(inputTime);
@@ -63,6 +64,10 @@ function App() {
     setInputTimeTemp(timeNow);
   };
 
+  const toggleJitter = () => {
+    setJitterActive((prev) => !prev);
+  };
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentTime(DateTime.now());
@@ -74,15 +79,21 @@ function App() {
   }, [calculateDiff]);
 
   return (
-    <div className="App">
-      <div className="DataContainer" id="CurrentTime">
+    <div className={jitterActive ? "App TextJitter" : "App"}>
+      <div
+        className={jitterActive ? "DataContainer DivJitter" : "DataContainer"}
+        id="CurrentTime"
+      >
         <div className="DataContainerLabel">CURRENT TIME</div>
         <div className="Display">{convertToUnixEpoch(currentTime)}</div>
         <div className="Display HumanTimeDisplay">
           {convertToHumanTime(currentTime)}
         </div>
       </div>
-      <div className="DataContainer" id="InputTime">
+      <div
+        className={jitterActive ? "DataContainer DivJitter" : "DataContainer"}
+        id="InputTime"
+      >
         <div className="DataContainerLabel">INPUT TIME</div>
         <div className="Display">{inputTime}</div>
         <div className="Display HumanTimeDisplay">
@@ -90,10 +101,14 @@ function App() {
         </div>
         <div className="Display">{formatDiff(diffTime)}</div>
       </div>
-      <div className="DataContainer" id="TimeInput">
+      <div
+        className={jitterActive ? "DataContainer DivJitter" : "DataContainer"}
+        id="TimeInput"
+      >
         <div className="DataContainerLabel">UNIX TIME INPUT</div>
         <div className="Display" id="UnixTimeInputContainer">
           <input
+            className={jitterActive ? "TextDivJitter" : ""}
             value={inputTimeTemp}
             onChange={inputOnChange}
             onKeyPress={(event) => {
@@ -104,11 +119,23 @@ function App() {
           />
         </div>
       </div>
-      <div className="Button" onClick={() => updateInputValue()}>
+      <div
+        className={jitterActive ? "Button DivJitter" : "Button"}
+        onClick={() => updateInputValue()}
+      >
         UPDATE_INPUT_TIME_
       </div>
-      <div className="Button" onClick={() => resetInputToCurrentTime()}>
+      <div
+        className={jitterActive ? "Button DivJitter" : "Button"}
+        onClick={() => resetInputToCurrentTime()}
+      >
         RESET_TO_CURRENT_TIME_
+      </div>
+      <div
+        className={jitterActive ? "Button DivJitter" : "Button"}
+        onClick={() => toggleJitter()}
+      >
+        TOGGLE_JITTER_
       </div>
     </div>
   );

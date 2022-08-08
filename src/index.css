@@ -17,8 +17,25 @@ body {
   height: 100vh;
   background-color: #091833;
   color: white;
+}
+
+.TextJitter {
   animation-duration: 0.01s;
   animation-name: textflicker;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.DivJitter {
+  animation-duration: 0.01s;
+  animation-name: divflicker;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.TextDivJitter {
+  animation-duration: 0.01s;
+  animation-name: textdivflicker;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
@@ -30,18 +47,29 @@ code {
 
 @keyframes textflicker {
   from {
-    text-shadow: 2px 0 0 #ea36af, -2px 0 0 #75fa69;
+    text-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
   }
   to {
-    text-shadow: 3px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
+    text-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
   }
 }
 
 @keyframes divflicker {
   from {
-    box-shadow: 2px 0 0 #ea36af, -2px 0 0 #75fa69;
+    box-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
   }
   to {
-    box-shadow: 3px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
+    box-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
+  }
+}
+
+@keyframes textdivflicker {
+  from {
+    text-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
+    box-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
+  }
+  to {
+    text-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
+    box-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
   }
 }
