@@ -14,7 +14,7 @@
 
 .Button {
   background-color: #ea00d9;
-  width: 20rem;
+  width: 19rem;
   margin: 1rem;
   padding: 1rem;
   font-size: 1.5rem;
@@ -38,13 +38,13 @@
 }
 
 .Display {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-size: 1.5rem;
 }
 
 .Display input {
   font-size: 1.5rem;
-  width: 20rem;
+  width: 15rem;
   background-color: #091833;
   border: 0.3rem solid #ea00d9;
   padding: 0.5rem;
@@ -57,6 +57,29 @@
 .Display input:focus {
   outline: none;
   border: 0.3rem solid #711c91;
+}
+
+#UnixTimeInputContainer {
+  margin-top: 10px;
+}
+
+.HumanTimeDisplay {
+  font-size: 1.2rem;
+}
+
+.DataContainer {
+  border: 0.1rem solid #ea00d9;
+  margin: 0.5rem;
+  padding: 0.5rem 0.5rem;
+  position: relative;
+  width: 20rem;
+}
+
+.DataContainerLabel {
+  position: absolute;
+  top: -10px;
+  background: #091833;
+  padding: 0 0.5rem;
 }
 
 .App-logo {

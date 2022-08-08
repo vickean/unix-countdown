@@ -27,7 +27,7 @@ function App() {
   };
 
   const updateInputValue = () => {
-    setInputTime(inputTimeTemp);
+    setInputTime(parseInt(inputTimeTemp));
   };
 
   const calculateDiff = useCallback((inputT, currentT) => {
@@ -75,13 +75,35 @@ function App() {
 
   return (
     <div className="App">
-      <div className="Display">{convertToUnixEpoch(currentTime)}</div>
-      <div className="Display">{convertToHumanTime(currentTime)}</div>
-      <div className="Display">
-        <input value={inputTimeTemp} onChange={inputOnChange} />
+      <div className="DataContainer" id="CurrentTime">
+        <div className="DataContainerLabel">CURRENT TIME</div>
+        <div className="Display">{convertToUnixEpoch(currentTime)}</div>
+        <div className="Display HumanTimeDisplay">
+          {convertToHumanTime(currentTime)}
+        </div>
       </div>
-      <div className="Display">{inputTime}</div>
-      <div className="Display">{formatDiff(diffTime)}</div>
+      <div className="DataContainer" id="InputTime">
+        <div className="DataContainerLabel">INPUT TIME</div>
+        <div className="Display">{inputTime}</div>
+        <div className="Display HumanTimeDisplay">
+          {convertToHumanTime(DateTime.fromSeconds(inputTime || 0))}
+        </div>
+        <div className="Display">{formatDiff(diffTime)}</div>
+      </div>
+      <div className="DataContainer" id="TimeInput">
+        <div className="DataContainerLabel">UNIX TIME INPUT</div>
+        <div className="Display" id="UnixTimeInputContainer">
+          <input
+            value={inputTimeTemp}
+            onChange={inputOnChange}
+            onKeyPress={(event) => {
+              if (!/[0-9]/.test(event.key)) {
+                event.preventDefault();
+              }
+            }}
+          />
+        </div>
+      </div>
       <div className="Button" onClick={() => updateInputValue()}>
         UPDATE_INPUT_TIME_
       </div>
