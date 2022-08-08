@@ -2,6 +2,8 @@
 
 Simple utility to calculate and display time difference between a given unix timestamp and current time.
 
+For setup steps for GitHub Pages deployment on commit to `master` branch, see [this](https://dev.to/achukka/deploy-react-app-using-github-actions-157d).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
